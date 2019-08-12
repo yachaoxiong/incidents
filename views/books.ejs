@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+<div  style="text-align: center">
+<form method="post" action="/books" class="form-signin">
+    <img class="mb-4" src="images/logo.png" alt="" style="border-radius:50px!important;">
+    <h1 class="h3 mb-3 font-weight-normal">Store Books </h1>
+
+    <div class="form-group ">
+        <label class="form-control-label" for="inputDanger1">Author</label>
+        <input type="text"  name="Author" class="form-control " id="inputAuthor" required>
+
+    </div>
+    <div class="form-group ">
+        <label class="form-control-label" for="inputDanger1">Title</label>
+        <input type="text" name="Title" class="form-control " id="inputTitle"  required>
+    </div>
+    <div class="form-group">
+        <label class="form-control-label" for="Year">Year</label>
+        <input  name="Year" class="form-control"  maxlength="4" id="inputYeardsds"  required>
+        <div class="invalid-feedback">Sorry, only 4 digit number only.</div>
+    </div>
+    <div class="form-group ">
+        <label class="form-control-label" for="Publication">Publication</label>
+        <input type="text" name="Publication" class="form-control " id="inputPublication"  required>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Submit</button>
+
+</form>
+
+
+</div>
+<div class="container">
+    <div style="margin-top: 2%;margin-bottom: 2%">
+        <form method="post" action="/search" class="form-inline my-2 my-lg-0" style="display: block!important;">
+            <input class="form-control mr-sm-2 "name="Search" id="inputResearch" type="text" placeholder="Author" required>
+            <input class="form-control mr-sm-2 "name="Search" id="inputYear" type="number" placeholder="Year" required>
+            <input class="form-control mr-sm-2 "name="Search" id="inputResearch" type="text" placeholder="title" required>
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <div class="invalid-feedback" style="padding-left: 30%">Sorry, only 4 digit number only.</div>
+        </form>
+    </div>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Author</th>
+            <th scope="col">Title</th>
+            <th scope="col">Year</th>
+            <th scope="col">Publication</th>
+        </tr>
+        </thead>
+        <tbody>
+        <%for(var i=0;i<Books.length;i++){%>
+        <tr>
+            <th><%=Books[i].Author%></th>
+            <td><%=Books[i].Title%></td>
+            <td><%=Books[i].Year%></td>
+            <td><%=Books[i].Publication%></td>
+        </tr>
+        <%}%>
+        </tbody>
+    </table>
+    <div style="border-bottom:1px solid #d1d1d1"></div>
+    <p style="margin-top: 2%">Georgian College - Application Security Prog. | Project2 YaChao Xiong (Eric)</p>
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="../javascripts/app.js"></script>
+</html>
